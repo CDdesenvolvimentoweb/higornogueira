@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Higor Nogueira - Visagista Profissional. Consultoria especializada para cabelo, barba e visual." />
+  <meta name="theme-color" content="#080808" />
+  <title>Higor Nogueira | Visagista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #080808;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .preloader-content {
+      text-align: center;
+    }
+    .preloader-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .preloader-bar {
+      width: 100px;
+      height: 1px;
+      background: rgba(50, 50, 50, 0.5);
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .preloader-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(to right, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.7), rgba(212, 175, 55, 0.3));
+      animation: progress 2s ease-in-out forwards;
+    }
+    @keyframes progress {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+    
+    @media (max-width: 480px) {
+      .preloader-logo {
+        font-size: 1.75rem;
+      }
+      .preloader-bar {
+        width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">HN</div>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    // Hide preloader after content loads
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('preloader').classList.add('hidden');
+      }, 1500);
+    });
+    
+    // Handle viewport height for mobile browsers
+    function setVh() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Set on initial load
+    setVh();
+    
+    // Update on resize
+    window.addEventListener('resize', setVh);
+  </script>
+</body>
+</html> 
