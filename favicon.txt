@@ -1,0 +1,1 @@
+Please create a favicon.ico file or update the link in index.html to point to your existing favicon. 
