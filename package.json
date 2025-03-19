@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://CDdesenvolvimentoweb.github.io/landingpage",
+  "homepage": "https://CDdesenvolvimentoweb.github.io/higornogueira",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
